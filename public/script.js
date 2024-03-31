@@ -1,22 +1,16 @@
-document.body.style.margin   = 0
-document.body.style.overflow = `hidden`
+document.body.style.margin = 0;
+document.body.style.overflow = `hidden`;
 
-const cnv = document.getElementById (`cnv_element`)
-cnv.width = innerWidth
-cnv.height = innerHeight
+let frame_count = 0;
 
-const ctx = cnv.getContext (`2d`)
+function draw_frame() {
+  const h = 24; // orange
+  const c = `hsl(${h}, 50%, 50%)`;
+  document.body.style.backgroundColor = c;
 
-const draw_frame = () => {
-   ctx.fillStyle = `turquoise`
-   ctx.fillRect (0, 0, innerWidth, innerHeight)
+  frame_count++;
 
-   requestAnimationFrame (draw_frame)
+  requestAnimationFrame(draw_frame);
 }
 
-draw_frame ()
-
-window.onresize = () => {
-   cnv.width = innerWidth
-   cnv.height = innerHeight   
-}
+draw_frame();
